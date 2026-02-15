@@ -74,20 +74,9 @@ export function TubesBackground({
     };
   }, []);
 
-  const handleClick = () => {
-    if (!enableClickInteraction || !tubesRef.current) return;
-    
-    const colors = randomColors(3);
-    const lightsColors = randomColors(4);
-    
-    tubesRef.current.tubes.setColors(colors);
-    tubesRef.current.tubes.setLightsColors(lightsColors);
-  };
-
   return (
     <div 
       className={cn("relative w-full h-full min-h-[400px] overflow-hidden bg-background", className)}
-      onClick={handleClick}
     >
       <canvas 
         ref={canvasRef} 
