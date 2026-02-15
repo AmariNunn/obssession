@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { ArrowRight, ChevronRight, Terminal, Code2, Cpu } from "lucide-react";
 import { TechCard } from "@/components/TechCard";
 import { LiquidEther } from "@/components/LiquidEther";
+import { PricingPlans } from "@/components/PricingPlans";
 import { useProjects } from "@/hooks/use-content";
 
 export default function Home() {
@@ -12,9 +13,9 @@ export default function Home() {
   const featuredProjects = projects?.filter(p => p.featured).slice(0, 3) || [];
 
   return (
-    <div className="space-y-24 pb-20">
+    <div className="space-y-0 pb-0 bg-background min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden bg-background">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
         <div className="absolute inset-0 z-0 pointer-events-auto">
           <LiquidEther
             colors={['#070D0D', '#333333', '#fbfbfb']}
@@ -32,7 +33,7 @@ export default function Home() {
           <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-background pointer-events-none" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -92,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* Services Snippet */}
-      <section className="py-12 bg-muted/30 border-y border-border/50">
+      <section className="py-24 bg-muted/30 border-y border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col space-y-4 p-6 rounded-xl hover:bg-background/80 transition-colors border border-transparent hover:border-border/50">
@@ -121,7 +122,7 @@ export default function Home() {
       </section>
 
       {/* Featured Work */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-12">
           <div>
             <h2 className="text-3xl font-bold tracking-tight mb-2">Selected Work</h2>
@@ -170,8 +171,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pricing Section */}
+      <PricingPlans />
+
       {/* CTA Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-primary px-6 py-16 md:px-12 md:py-20 relative overflow-hidden text-center">
           <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
              <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl -top-20 -left-20"></div>
