@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertContactMessageSchema, InsertContactMessage } from "@shared/schema";
+import { z } from "zod";
 import { useContact } from "@/hooks/use-content";
 import { TechCard } from "@/components/TechCard";
 import { Mail, MessageSquare, Send } from "lucide-react";
@@ -16,11 +16,20 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
+const contactSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email"),
+  subject: z.string().optional(),
+  message: z.string().min(1, "Message is required"),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
+
 export default function Contact() {
   const { mutate: sendMessage, isPending } = useContact();
 
-  const form = useForm<InsertContactMessage>({
-    resolver: zodResolver(insertContactMessageSchema),
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -29,7 +38,7 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(data: InsertContactMessage) {
+  function onSubmit(data: ContactFormData) {
     sendMessage(data, {
       onSuccess: () => form.reset(),
     });
