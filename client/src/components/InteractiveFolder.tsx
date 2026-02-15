@@ -134,7 +134,7 @@ export function InteractiveFolder({
               {isOpen ? (
                 <div className="flex flex-col items-center justify-center gap-2 p-2">
                   {item}
-                  {i === 1 && linkUrl && (
+                  {i === 2 && linkUrl && (
                     <a
                       href={linkUrl}
                       onClick={(e) => e.stopPropagation()}
