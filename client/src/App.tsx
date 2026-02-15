@@ -27,10 +27,6 @@ function Router() {
             {(params) => <div className="pt-32 px-8 text-center text-2xl font-mono text-muted-foreground">Project: {params.slug} (Detail View)</div>}
           </Route>
           <Route path="/contact" component={Contact} />
-          <Route path="/blog" component={Blog} />
-          <Route path="/blog/:slug">
-            {(params) => <div className="pt-32 px-8 text-center text-2xl font-mono text-muted-foreground">Post: {params.slug} (Detail View)</div>}
-          </Route>
           <Route component={NotFound} />
         </Switch>
       </main>

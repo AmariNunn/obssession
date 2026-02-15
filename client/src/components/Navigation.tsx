@@ -11,7 +11,6 @@ export function Navigation() {
     { href: "/", label: "Home", icon: Terminal },
     { href: "/services", label: "Services", icon: Cpu },
     { href: "/portfolio", label: "Work", icon: FolderGit2 },
-    { href: "/blog", label: "Log", icon: BookOpen },
     { href: "/contact", label: "Contact", icon: Mail },
   ];
 

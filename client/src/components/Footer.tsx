@@ -24,7 +24,6 @@ export function Footer() {
               <li><a href="/" className="hover:text-primary transition-colors">Home</a></li>
               <li><a href="/services" className="hover:text-primary transition-colors">Services</a></li>
               <li><a href="/portfolio" className="hover:text-primary transition-colors">Work</a></li>
-              <li><a href="/blog" className="hover:text-primary transition-colors">Blog</a></li>
             </ul>
           </div>
 
