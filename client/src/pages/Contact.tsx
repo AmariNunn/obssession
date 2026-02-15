@@ -54,20 +54,18 @@ export default function Contact() {
           </p>
 
           <div className="space-y-6">
-            <div className="flex items-start space-x-4 p-4 rounded-lg bg-muted/30 border border-border/50">
-              <Mail className="w-6 h-6 text-primary mt-1" />
+            <a 
+              href="https://cal.com/skyiq/app-consultation" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-start space-x-4 p-4 rounded-lg bg-muted/30 border border-border/50 hover:border-primary/50 hover:bg-muted/50 transition-all group"
+            >
+              <MessageSquare className="w-6 h-6 text-primary mt-1 group-hover:scale-110 transition-transform" />
               <div>
-                <h3 className="font-bold">Email</h3>
-                <p className="text-muted-foreground text-sm">hello@example.com</p>
+                <h3 className="font-bold">Book a Consultation</h3>
+                <p className="text-muted-foreground text-sm">Schedule a free consultation call to discuss your project.</p>
               </div>
-            </div>
-            <div className="flex items-start space-x-4 p-4 rounded-lg bg-muted/30 border border-border/50">
-              <MessageSquare className="w-6 h-6 text-primary mt-1" />
-              <div>
-                <h3 className="font-bold">Socials</h3>
-                <p className="text-muted-foreground text-sm">@amarinunntech on Twitter/X</p>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
 

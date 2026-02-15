@@ -50,16 +50,10 @@ export function useContact() {
   const { toast } = useToast();
   return useMutation({
     mutationFn: async (data: { name: string; email: string; subject?: string; message: string }) => {
-      const formData = new FormData();
-      formData.append("form-name", "contact");
-      formData.append("name", data.name);
-      formData.append("email", data.email);
-      if (data.subject) formData.append("subject", data.subject);
-      formData.append("message", data.message);
-
-      const res = await fetch("/", {
+      const res = await fetch("https://formspree.io/f/xdalgbdn", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
 
       if (!res.ok) throw new Error("Failed to send message");
