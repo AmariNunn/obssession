@@ -204,12 +204,12 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-primary px-6 py-16 md:px-12 md:py-20 relative overflow-hidden text-center min-h-[400px] flex items-center justify-center">
+        <div className="rounded-3xl bg-primary/20 px-6 py-16 md:px-12 md:py-20 relative overflow-hidden text-center min-h-[400px] flex items-center justify-center border border-primary/20">
           <BallpitBackground 
-            count={80}
-            colors={['#ffffff', '#3B82F6', '#94A3B8']}
-            gravity={0.2}
-            className="opacity-40"
+            count={120}
+            colors={['#3B82F6', '#60A5FA', '#93C5FD', '#BFDBFE']}
+            gravity={0.1}
+            className="opacity-80"
           />
           
           <div className="relative z-10 max-w-2xl mx-auto">
@@ -221,7 +221,7 @@ export default function Home() {
             </p>
             <Link 
               href="/contact" 
-              className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-background text-foreground font-bold hover:bg-accent hover:text-white transition-all duration-300 shadow-xl"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-white text-primary font-bold hover:bg-white/90 transition-all duration-300 shadow-xl"
             >
               Get in Touch
             </Link>
