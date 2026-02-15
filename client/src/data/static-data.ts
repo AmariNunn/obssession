@@ -97,6 +97,20 @@ export const projectsData = [
     order: 7,
     createdAt: null,
   },
+  {
+    id: 8,
+    title: "Excellence In Motion",
+    slug: "excellence-in-motion",
+    description: "A purpose-driven youth development organization bridging arts, science, and educational excellence.",
+    content: "A purpose-driven youth development organization bridging arts, science, and educational excellence.",
+    imageUrl: "/images/excellence-in-motion.png",
+    technologies: ["Web Design", "Nonprofit", "Education"],
+    liveUrl: "https://excellenceinmotion.org/",
+    repoUrl: null,
+    featured: false,
+    order: 8,
+    createdAt: null,
+  },
 ];
 
 export const servicesData = [
