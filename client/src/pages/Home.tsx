@@ -43,7 +43,7 @@ export default function Home() {
             >
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-10 leading-[1.1]">
                 AmariNunn.Tech <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">We build what's next.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60 text-justify">Builds what's next.</span>
               </h1>
               
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
