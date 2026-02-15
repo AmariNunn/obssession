@@ -92,11 +92,6 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  <div className="pt-6 mt-auto border-t border-border/50">
-                     <Link href={`/portfolio/${project.slug}`} className="text-sm font-bold text-primary hover:text-accent transition-colors flex items-center">
-                       Read Case Study &rarr;
-                     </Link>
-                  </div>
                 </TechCard>
               </motion.div>
             ))
