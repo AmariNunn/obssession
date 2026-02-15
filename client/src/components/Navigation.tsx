@@ -1,9 +1,11 @@
 import { Link, useLocation } from "wouter";
-import { Terminal, Code2, FolderGit2, Mail, Cpu, BookOpen } from "lucide-react";
+import { Terminal, Code2, FolderGit2, Mail, Cpu, BookOpen, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 export function Navigation() {
   const [location] = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { href: "/", label: "Home", icon: Terminal },
@@ -24,6 +26,7 @@ export function Navigation() {
             <span className="font-bold text-lg tracking-tight hidden sm:block">Amari Nunn Tech</span>
           </Link>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -46,14 +49,45 @@ export function Navigation() {
             })}
           </div>
 
+          {/* Mobile menu button */}
           <div className="flex md:hidden">
-            {/* Mobile menu could go here, keeping it simple for now with a scrollable bar */}
-            <div className="flex space-x-4 overflow-x-auto pb-2 -mb-2 scrollbar-hide">
-             {/* Using simple links for mobile fallback if needed */}
-            </div>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-muted focus:outline-none transition-colors"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div className="md:hidden bg-background border-b border-border shadow-xl">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = location === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={cn(
+                    "block px-3 py-4 rounded-md text-base font-medium flex items-center space-x-3",
+                    isActive 
+                      ? "text-primary bg-primary/5" 
+                      : "text-muted-foreground hover:text-primary hover:bg-muted/50"
+                  )}
+                >
+                  <Icon className={cn("w-5 h-5", isActive ? "text-accent" : "text-muted-foreground")} />
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
