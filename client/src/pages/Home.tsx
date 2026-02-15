@@ -214,7 +214,7 @@ export default function Home() {
             </p>
             <Link 
               href="/contact" 
-              className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-background text-foreground font-bold hover:bg-accent hover:text-white transition-all duration-300 shadow-xl"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-bold hover:bg-accent hover:text-white transition-all duration-300 shadow-xl bg-[#788282] text-[#ffffff]"
             >
               Get in Touch
             </Link>
