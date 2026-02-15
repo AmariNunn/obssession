@@ -26,7 +26,6 @@ function Router() {
           <Route path="/portfolio/:slug">
             {(params) => <div className="pt-32 px-8 text-center text-2xl font-mono text-muted-foreground">Project: {params.slug} (Detail View)</div>}
           </Route>
-          <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/blog" component={Blog} />
           <Route path="/blog/:slug">
