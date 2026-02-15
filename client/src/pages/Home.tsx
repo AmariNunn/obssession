@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, ChevronRight, Terminal, Code2, Cpu } from "lucide-react";
 import { TechCard } from "@/components/TechCard";
+import { LiquidEther } from "@/components/LiquidEther";
 import { useProjects } from "@/hooks/use-content";
 
 export default function Home() {
@@ -14,9 +15,19 @@ export default function Home() {
     <div className="space-y-24 pb-20">
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-30">
-          <div className="absolute top-10 right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute inset-0 z-0 pointer-events-auto">
+          <LiquidEther
+            colors={['#808080', '#C0C0C0', '#E8E8E8']}
+            mouseForce={25}
+            cursorSize={120}
+            autoDemo={true}
+            autoSpeed={0.6}
+            autoIntensity={2.5}
+            resolution={0.5}
+            BFECC={true}
+            className="pointer-events-auto"
+            style={{ pointerEvents: 'auto' }}
+          />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -75,7 +86,7 @@ export default function Home() {
                   </div>
                   <div className="space-y-2">
                     <p><span className="text-blue-500">const</span> <span className="text-yellow-500">engineer</span> = <span className="text-purple-500">new</span> <span className="text-green-500">Developer</span>({`{`}</p>
-                    <p className="pl-4"><span className="text-red-500">name</span>: <span className="text-green-500">"Alex Dev"</span>,</p>
+                    <p className="pl-4"><span className="text-red-500">name</span>: <span className="text-green-500">"Amari Nunn"</span>,</p>
                     <p className="pl-4"><span className="text-red-500">skills</span>: [<span className="text-green-500">"React"</span>, <span className="text-green-500">"Node"</span>, <span className="text-green-500">"AI"</span>],</p>
                     <p className="pl-4"><span className="text-red-500">status</span>: <span className="text-green-500">"Online"</span></p>
                     <p>{`}`});</p>

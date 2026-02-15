@@ -8,9 +8,9 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-6 h-6 bg-primary rounded-sm flex items-center justify-center">
-                 <span className="font-mono font-bold text-primary-foreground text-xs">D</span>
+                 <span className="font-mono font-bold text-primary-foreground text-xs">AN</span>
               </div>
-              <span className="font-bold text-lg tracking-tight">Portfolio.sys</span>
+              <span className="font-bold text-lg tracking-tight">Amari Nunn Tech</span>
             </div>
             <p className="text-muted-foreground text-sm max-w-sm">
               Building high-performance web experiences with modern architecture.
@@ -48,7 +48,7 @@ export function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground font-mono">
-          <p>© {new Date().getFullYear()} Portfolio.sys. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Amari Nunn Tech. All rights reserved.</p>
           <div className="mt-4 md:mt-0 flex items-center space-x-4">
             <span className="flex items-center">
               <span className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>

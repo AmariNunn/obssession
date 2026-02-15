@@ -56,7 +56,7 @@ export default function Contact() {
               <MessageSquare className="w-6 h-6 text-primary mt-1" />
               <div>
                 <h3 className="font-bold">Socials</h3>
-                <p className="text-muted-foreground text-sm">@alexdev on Twitter/X</p>
+                <p className="text-muted-foreground text-sm">@amarinunntech on Twitter/X</p>
               </div>
             </div>
           </div>

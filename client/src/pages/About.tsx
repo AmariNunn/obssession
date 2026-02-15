@@ -16,8 +16,8 @@ export default function About() {
                 />
              </div>
              <div className="p-6">
-               <h2 className="text-xl font-bold mb-1">Alex Developer</h2>
-               <p className="text-sm text-accent font-mono mb-4">Senior Full Stack Engineer</p>
+               <h2 className="text-xl font-bold mb-1">Amari Nunn</h2>
+               <p className="text-sm text-accent font-mono mb-4">Founder & Full Stack Engineer</p>
                <div className="space-y-2 text-sm text-muted-foreground font-mono">
                  <div className="flex justify-between">
                    <span>Location</span>

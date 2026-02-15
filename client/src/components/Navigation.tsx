@@ -20,9 +20,9 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2 group">
             <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
-              <span className="font-mono font-bold text-primary-foreground text-sm">DEV</span>
+              <span className="font-mono font-bold text-primary-foreground text-sm">AN</span>
             </div>
-            <span className="font-bold text-lg tracking-tight hidden sm:block">Portfolio.sys</span>
+            <span className="font-bold text-lg tracking-tight hidden sm:block">Amari Nunn Tech</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-1">
