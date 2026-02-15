@@ -7,8 +7,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-6 h-6 bg-primary rounded-sm flex items-center justify-center">
-                 <span className="font-mono font-bold text-primary-foreground text-xs">AN</span>
+              <div className="w-6 h-6 rounded-sm flex items-center justify-center overflow-hidden">
+                <img src="/logo.png" alt="ANT Logo" className="w-full h-full object-contain" />
               </div>
               <span className="font-bold text-lg tracking-tight">Amari Nunn Tech</span>
             </div>
