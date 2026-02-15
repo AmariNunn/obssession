@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="space-y-24 pb-20">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden bg-slate-950">
         <div className="absolute inset-0 z-0 pointer-events-auto">
           <LiquidEther
             colors={['#808080', '#C0C0C0', '#E8E8E8']}
@@ -37,22 +37,10 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-mono mb-6 border border-accent/20">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-                </span>
-                <span>AVAILABLE FOR HIRE</span>
-              </div>
-              
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-[1.1]">
-                Building the <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">Digital Future</span>
+              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-10 leading-[1.1]">
+                AmariNunn.Tech <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">We build what's next.</span>
               </h1>
-              
-              <p className="text-xl text-muted-foreground mb-8 max-w-lg leading-relaxed">
-                Full-stack engineer specializing in scalable architecture, AI integration, and premium user experiences.
-              </p>
               
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <Link 

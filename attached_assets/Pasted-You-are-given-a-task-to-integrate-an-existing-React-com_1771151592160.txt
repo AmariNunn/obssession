@@ -1,25 +1,188 @@
-import { useEffect, useRef } from 'react';
+You are given a task to integrate an existing React component in the codebase
+
+~~~/README.md
+# LiquidEther
+
+A production-grade WebGL fluid simulation component for React, built with Three.js. It provides a highly performant, interactive "liquid ether" background effect with smooth mouse interactions and an intelligent auto-demo driver.
+
+## Features
+- **Real-time Fluid Dynamics**: Navier-Stokes based simulation optimized for WebGL.
+- **BFECC Support**: Back-and-Forth Error Compensation and Correction for high-fidelity fluid details.
+- **Interactive**: Responds to mouse and touch movements with momentum.
+- **Auto-Driver**: Seamlessly transitions between user control and automated movement.
+- **Customizable**: Control colors, viscosity, resolution, and interaction force.
+- **Performance Optimized**: Uses `HalfFloatType` on iOS and handles visibility/resizing efficiently.
+
+## Dependencies
+- `three`: ^0.170.0
+- `react`: ^18.0.0
+- `lucide-react`: ^0.454.0
+
+## Component Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `colors` | `string[]` | `['#5227FF', '#FF9FFC', '#B19EEF']` | Array of hex strings for the simulation palette. |
+| `mouseForce` | `number` | `20` | Force multiplier for mouse movement. |
+| `cursorSize` | `number` | `100` | Interaction radius in pixels. |
+| `resolution` | `number` | `0.5` | Simulation resolution scale (0.1 to 1.0). |
+| `isViscous` | `boolean` | `false` | Enable viscosity simulation. |
+| `viscous` | `number` | `30` | Viscosity coefficient. |
+| `autoDemo` | `boolean` | `true` | Enable auto-movement when idle. |
+| `autoSpeed` | `number` | `0.5` | Speed of the auto-demo driver. |
+
+## Usage Example
+
+```tsx
+import { LiquidEther } from '@/sd-components/36039875-1e54-4edb-8860-9609381fb61c';
+
+function MyComponent() {
+  return (
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <LiquidEther 
+        colors={['#000000', '#3b82f6', '#ffffff']}
+        mouseForce={25}
+        autoDemo={true}
+      />
+    </div>
+  );
+}
+```
+~~~
+
+~~~/src/App.tsx
+/**
+ * LiquidEther Showcase Demo
+ * Displays a full-screen interactive fluid simulation using the LiquidEther component.
+ * Follows the 'Minimalist Showcase' style guide.
+ */
+
+import React from 'react';
+import { LiquidEther } from './Component';
+import { RefreshCcw } from 'lucide-react';
+
+export default function App() {
+  const [key, setKey] = React.useState(0);
+
+  const handleRefresh = () => {
+    setKey(prev => prev + 1);
+  };
+
+  return (
+    <div className="relative w-full h-screen bg-background overflow-hidden flex flex-col items-center justify-center p-20 lg:p-40">
+      {/* Premium Floating Container */}
+      <div className="relative w-full max-w-5xl h-full bg-card rounded-3xl overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.05)] border border-border/50 group">
+        
+        {/* The Component Itself */}
+        <div className="absolute inset-0 z-0">
+          <LiquidEther
+            key={key}
+            colors={['#5227FF', '#FF9FFC', '#B19EEF']}
+            mouseForce={25}
+            cursorSize={120}
+            autoDemo={true}
+            autoSpeed={0.6}
+            autoIntensity={2.5}
+            resolution={0.6}
+            BFECC={true}
+          />
+        </div>
+
+        {/* Minimalist Overlay UI */}
+        <div className="absolute inset-0 z-10 p-12 pointer-events-none flex flex-col justify-between">
+          <div className="space-y-2">
+            <h1 className="text-4xl font-semibold tracking-tight text-foreground/90 font-sans">
+              Liquid Ether
+            </h1>
+            <p className="text-muted-foreground font-medium text-sm tracking-widest uppercase">
+              Fluid Dynamics Simulation
+            </p>
+          </div>
+
+          <div className="flex justify-end pointer-events-auto">
+            <button
+              onClick={handleRefresh}
+              className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full text-sm font-semibold tracking-tight hover:scale-105 transition-all duration-300 shadow-lg active:scale-95"
+            >
+              <RefreshCcw className="w-4 h-4" />
+              Reply Animation
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Atmospheric Background Noise/Grain (Optional but adds premium feel) */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+    </div>
+  );
+}
+~~~
+
+~~~/package.json
+{
+  "name": "liquid-ether-showcase",
+  "description": "Premium fluid simulation showcase component",
+  "dependencies": {
+    "three": "^0.170.0",
+    "@types/three": "^0.170.0",
+    "lucide-react": "^0.454.0",
+    "framer-motion": "^11.11.17"
+  }
+}
+~~~
+
+~~~/src/Component.tsx
+/**
+ * LiquidEther Component
+ * A high-performance WebGL fluid simulation component using Three.js.
+ * Features:
+ * - Real-time fluid dynamics
+ * - Mouse interaction and auto-demo driver
+ * - Custom color palettes
+ * - Responsive sizing and intersection observation for performance
+ */
+
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 export interface LiquidEtherProps {
+  /** Force multiplier for mouse movement */
   mouseForce?: number;
+  /** Radius of the interaction cursor in pixels */
   cursorSize?: number;
+  /** Whether to enable viscosity simulation */
   isViscous?: boolean;
+  /** Viscosity coefficient */
   viscous?: number;
+  /** Number of iterations for viscosity calculation */
   iterationsViscous?: number;
+  /** Number of iterations for Poisson pressure calculation */
   iterationsPoisson?: number;
+  /** Time step for simulation */
   dt?: number;
+  /** Back-and-Forth Error Compensation and Correction for sharper details */
   BFECC?: boolean;
+  /** Simulation resolution (0.0 to 1.0) */
   resolution?: number;
+  /** Whether the fluid bounces off edges */
   isBounce?: boolean;
+  /** Array of hex color strings for the palette */
   colors?: string[];
+  /** Custom styles for the container */
   style?: React.CSSProperties;
+  /** Custom class name for the container */
   className?: string;
+  /** Enable automatic movement when no user interaction */
   autoDemo?: boolean;
+  /** Speed of the auto-demo driver */
   autoSpeed?: number;
+  /** Intensity multiplier for auto-demo driver forces */
   autoIntensity?: number;
+  /** Duration of transition when user takes over control (seconds) */
   takeoverDuration?: number;
+  /** Delay before auto-demo resumes after last interaction (ms) */
   autoResumeDelay?: number;
+  /** Duration of the ramp-up when auto-demo starts (seconds) */
   autoRampDuration?: number;
 }
 
@@ -74,7 +237,7 @@ export function LiquidEther({
   takeoverDuration = 0.25,
   autoResumeDelay = 1000,
   autoRampDuration = 0.6
-}: LiquidEtherProps) {
+}: LiquidEtherProps): React.ReactElement {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const webglRef = useRef<LiquidEtherWebGL | null>(null);
   const resizeObserverRef = useRef<ResizeObserver | null>(null);
@@ -134,14 +297,7 @@ export function LiquidEther({
         this.container = container;
         this.pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
         this.resize();
-        
-        try {
-          this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        } catch (e) {
-          console.error("WebGL Renderer creation failed:", e);
-          return;
-        }
-
+        this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         this.renderer.autoClear = false;
         this.renderer.setClearColor(new THREE.Color(0x000000), 0);
         this.renderer.setPixelRatio(this.pixelRatio);
@@ -461,7 +617,7 @@ export function LiquidEther({
           vec2 spot_new3 = spot_new - error / 2.0;
           vec2 vel_2 = texture2D(velocity, spot_new3).xy;
           vec2 spot_old2 = spot_new3 - vel_2 * dt * ratio;
-          vec2 newVel2 = texture2D(velocity, spot_old2).xy;
+          vec2 newVel2 = texture2D(velocity, spot_old2).xy; 
           gl_FragColor = vec4(newVel2, 0.0, 0.0);
         }
       }
@@ -878,20 +1034,9 @@ export function LiquidEther({
         this._onVisibility = () => { if (document.hidden) this.pause(); else if (isVisibleRef.current) this.start(); };
         document.addEventListener('visibilitychange', this._onVisibility);
       }
-      init() { 
-        if (Common.renderer && this.props?.$wrapper) { 
-          this.props.$wrapper.prepend(Common.renderer.domElement); 
-          this.output = new Output(); 
-        } 
-      }
-      resize() { Common.resize(); if (this.output) this.output.resize(); }
-      render() { 
-        if (!this.output) return;
-        if (this.autoDriver) this.autoDriver.update(); 
-        Mouse.update(); 
-        Common.update(); 
-        this.output.update(); 
-      }
+      init() { if (Common.renderer) { this.props.$wrapper.prepend(Common.renderer.domElement); this.output = new Output(); } }
+      resize() { Common.resize(); this.output.resize(); }
+      render() { if (this.autoDriver) this.autoDriver.update(); Mouse.update(); Common.update(); this.output.update(); }
       loop() { if (this.running) { this.render(); rafRef.current = requestAnimationFrame(this._loop); } }
       start() { if (!this.running) { this.running = true; this._loop(); } }
       pause() { this.running = false; if (rafRef.current) cancelAnimationFrame(rafRef.current); rafRef.current = null; }
@@ -932,10 +1077,20 @@ export function LiquidEther({
   return (
     <div
       ref={mountRef}
-      className={`w-full h-full relative overflow-hidden ${className}`}
+      className={`w-full h-full relative overflow-hidden pointer-events-none touch-none ${className}`}
       style={style}
     />
   );
 }
 
 export default LiquidEther;
+~~~
+
+Implementation Guidelines
+
+1. Analyze the component structure, styling, animation implementations
+2. Review the component's arguments and state
+3. Think through what is the best place to adopt this component/style into the design we are doing
+4. Then adopt the component/design to our current system
+
+Help me integrate this into my design
