@@ -92,7 +92,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Services Snippet */}
       <section className="py-24 bg-muted/30 border-y border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -149,7 +148,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Featured Work */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-12">
@@ -199,11 +197,9 @@ export default function Home() {
           )}
         </div>
       </section>
-
-
       {/* CTA Section */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-primary px-6 py-16 md:px-12 md:py-20 relative overflow-hidden text-center">
+        <div className="rounded-3xl px-6 py-16 md:px-12 md:py-20 relative overflow-hidden text-center bg-[#7d8c8c87]">
           <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
              <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl -top-20 -left-20"></div>
              <div className="absolute w-96 h-96 bg-accent rounded-full blur-3xl -bottom-20 -right-20"></div>
