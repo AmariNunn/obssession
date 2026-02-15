@@ -116,7 +116,7 @@ export async function seedDatabase() {
         slug: "onda-floent",
         description: "A dynamic entertainment and music brand site representing the Money on da FLO creative movement.",
         content: "A dynamic entertainment and music brand site representing the Money on da FLO creative movement.",
-        imageUrl: "https://images.unsplash.com/photo-1514525253361-bee8a197c9c4",
+        imageUrl: "/images/onda-floent.png",
         technologies: ["Web Design", "Branding", "Entertainment"],
         liveUrl: "https://ondafloent.money/",
         featured: false,
