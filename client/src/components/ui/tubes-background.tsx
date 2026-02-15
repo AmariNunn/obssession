@@ -31,11 +31,18 @@ export function TubesBackground({
       if (!canvasRef.current) return;
 
       try {
+        // Basic WebGL check to prevent crashes in environments without support
+        const gl = canvasRef.current.getContext('webgl') || canvasRef.current.getContext('experimental-webgl');
+        if (!gl) {
+          console.warn("WebGL not supported, skipping TubesBackground initialization");
+          return;
+        }
+
         // @ts-ignore
         const module = await import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
         const TubesCursor = module.default;
 
-        if (!mounted) return;
+        if (!mounted || !canvasRef.current) return;
 
         const app = TubesCursor(canvasRef.current, {
           tubes: {
