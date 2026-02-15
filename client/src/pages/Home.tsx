@@ -4,6 +4,7 @@ import { ArrowRight, ChevronRight, Terminal, Code2, Cpu, FileText, Layout, Datab
 import { TechCard } from "@/components/TechCard";
 import { LiquidEther } from "@/components/LiquidEther";
 import { PricingPlans } from "@/components/PricingPlans";
+import { BallpitBackground } from "@/components/BallpitBackground";
 import { InteractiveFolder } from "@/components/InteractiveFolder";
 import { useProjects } from "@/hooks/use-content";
 
@@ -203,11 +204,13 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-primary px-6 py-16 md:px-12 md:py-20 relative overflow-hidden text-center">
-          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-             <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl -top-20 -left-20"></div>
-             <div className="absolute w-96 h-96 bg-accent rounded-full blur-3xl -bottom-20 -right-20"></div>
-          </div>
+        <div className="rounded-3xl bg-primary px-6 py-16 md:px-12 md:py-20 relative overflow-hidden text-center min-h-[400px] flex items-center justify-center">
+          <BallpitBackground 
+            count={80}
+            colors={['#ffffff', '#3B82F6', '#94A3B8']}
+            gravity={0.2}
+            className="opacity-40"
+          />
           
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
