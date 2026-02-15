@@ -131,27 +131,34 @@ export function InteractiveFolder({
                 border: '1px solid rgba(0,0,0,0.03)'
               }}
             >
-              {i === 1 && isOpen && linkUrl ? (
-                <a
-                  href={linkUrl}
-                  onClick={(e) => e.stopPropagation()}
-                  className="flex items-center gap-1 text-[9px] font-semibold tracking-wide whitespace-nowrap px-2 py-1 rounded-md transition-colors"
-                  style={{ color: color, backgroundColor: `${color}15` }}
-                >
-                  Learn More
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M9 18l6-6-6-6" />
-                  </svg>
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: -6 }}>
-                    <path d="M9 18l6-6-6-6" />
-                  </svg>
-                </a>
-              ) : item || (
-                <div className="w-full h-full p-2 flex flex-col gap-1.5 opacity-20">
-                  <div className="w-3/4 h-1 bg-current rounded-full" />
-                  <div className="w-1/2 h-1 bg-current rounded-full" />
-                  <div className="w-2/3 h-1 bg-current rounded-full" />
+              {isOpen ? (
+                <div className="flex flex-col items-center justify-center gap-2 p-2">
+                  {item}
+                  {i === 1 && linkUrl && (
+                    <a
+                      href={linkUrl}
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center gap-1 text-[9px] font-semibold tracking-wide whitespace-nowrap px-2 py-1 rounded-md transition-colors"
+                      style={{ color: color, backgroundColor: `${color}15` }}
+                    >
+                      Learn More
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M9 18l6-6-6-6" />
+                      </svg>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: -6 }}>
+                        <path d="M9 18l6-6-6-6" />
+                      </svg>
+                    </a>
+                  )}
                 </div>
+              ) : (
+                item || (
+                  <div className="w-full h-full p-2 flex flex-col gap-1.5 opacity-20">
+                    <div className="w-3/4 h-1 bg-current rounded-full" />
+                    <div className="w-1/2 h-1 bg-current rounded-full" />
+                    <div className="w-2/3 h-1 bg-current rounded-full" />
+                  </div>
+                )
               )}
             </motion.div>
           ))}
