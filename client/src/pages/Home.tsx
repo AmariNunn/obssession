@@ -28,6 +28,8 @@ export default function Home() {
             className="pointer-events-auto"
             style={{ pointerEvents: 'auto' }}
           />
+          {/* Gradient overlay to fade effect under to the next section */}
+          <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-white pointer-events-none" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
