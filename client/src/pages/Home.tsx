@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, ChevronRight, Terminal, Code2, Cpu } from "lucide-react";
+import { ArrowRight, ChevronRight, Terminal, Code2, Cpu, FileText, Layout, Database } from "lucide-react";
 import { TechCard } from "@/components/TechCard";
 import { LiquidEther } from "@/components/LiquidEther";
 import { PricingPlans } from "@/components/PricingPlans";
+import { InteractiveFolder } from "@/components/InteractiveFolder";
 import { useProjects } from "@/hooks/use-content";
 
 export default function Home() {
@@ -96,26 +97,51 @@ export default function Home() {
       <section className="py-24 bg-muted/30 border-y border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col space-y-4 p-6 rounded-xl hover:bg-background/80 transition-colors border border-transparent hover:border-border/50">
-              <div className="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-2">
-                <Code2 className="w-6 h-6" />
+            <div className="flex flex-col items-center space-y-4 p-6 rounded-xl hover:bg-background/80 transition-colors border border-transparent hover:border-border/50">
+              <div className="mb-4">
+                <InteractiveFolder
+                  size={1.2}
+                  color="#5227FF"
+                  label="WEB DEV"
+                  items={[
+                    <Code2 key="1" className="w-5 h-5 text-slate-400" />,
+                    <Layout key="2" className="w-5 h-5 text-slate-400" />,
+                    <FileText key="3" className="w-5 h-5 text-slate-400" />
+                  ]}
+                />
               </div>
               <h3 className="text-xl font-bold">Web Development</h3>
-              <p className="text-muted-foreground text-sm">High-performance React/Next.js applications built for scale and speed.</p>
+              <p className="text-muted-foreground text-sm text-center">High-performance React/Next.js applications built for scale and speed.</p>
             </div>
-            <div className="flex flex-col space-y-4 p-6 rounded-xl hover:bg-background/80 transition-colors border border-transparent hover:border-border/50">
-              <div className="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-2">
-                <Cpu className="w-6 h-6" />
+            <div className="flex flex-col items-center space-y-4 p-6 rounded-xl hover:bg-background/80 transition-colors border border-transparent hover:border-border/50">
+              <div className="mb-4">
+                <InteractiveFolder
+                  size={1.2}
+                  color="#00D1FF"
+                  label="AI"
+                  items={[
+                    <Cpu key="1" className="w-5 h-5 text-cyan-400" />,
+                    <Terminal key="2" className="w-5 h-5 text-cyan-300" />
+                  ]}
+                />
               </div>
               <h3 className="text-xl font-bold">AI Integration</h3>
-              <p className="text-muted-foreground text-sm">Custom LLM implementation, chatbots, and intelligent automation workflows.</p>
+              <p className="text-muted-foreground text-sm text-center">Custom LLM implementation, chatbots, and intelligent automation workflows.</p>
             </div>
-            <div className="flex flex-col space-y-4 p-6 rounded-xl hover:bg-background/80 transition-colors border border-transparent hover:border-border/50">
-              <div className="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-2">
-                <Terminal className="w-6 h-6" />
+            <div className="flex flex-col items-center space-y-4 p-6 rounded-xl hover:bg-background/80 transition-colors border border-transparent hover:border-border/50">
+              <div className="mb-4">
+                <InteractiveFolder
+                  size={1.2}
+                  color="#1A1A1B"
+                  label="SYSTEMS"
+                  items={[
+                    <Database key="1" className="w-5 h-5 text-slate-500" />,
+                    <Terminal key="2" className="w-5 h-5 text-slate-400" />
+                  ]}
+                />
               </div>
               <h3 className="text-xl font-bold">System Architecture</h3>
-              <p className="text-muted-foreground text-sm">Robust backend design, database optimization, and cloud infrastructure.</p>
+              <p className="text-muted-foreground text-sm text-center">Robust backend design, database optimization, and cloud infrastructure.</p>
             </div>
           </div>
         </div>
