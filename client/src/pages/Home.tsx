@@ -204,8 +204,8 @@ export default function Home() {
           <BallpitBackground
             count={150}
             colors={['#1A1A1B', '#3B82F6', '#94A3B8']}
-            gravity={0.4}
-            friction={0.998}
+            gravity={0.2}
+            friction={0.999}
             followCursor={true}
             minSize={0.4}
             maxSize={0.9}
