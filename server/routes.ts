@@ -77,29 +77,89 @@ export async function registerRoutes(
 export async function seedDatabase() {
   const existingProjects = await storage.getProjects();
   if (existingProjects.length === 0) {
-    await storage.createProject({
-      title: "SkyIQ Cloud Platform",
-      slug: "skyiq-cloud",
-      description: "A full-featured web application platform delivering intelligent automation and client management tools.",
-      content: "SkyIQ Cloud is an AI-powered voice agent platform with features including call dashboards, bulk calling, business profiles, and admin panels. Built to streamline client communication and automate business workflows.",
-      imageUrl: "/images/skyiq-dashboard.png",
-      technologies: ["React", "Node.js", "AI", "Cloud"],
-      liveUrl: "https://www.skyiq.cloud",
-      featured: true,
-      order: 1
-    });
-    
-    await storage.createProject({
-      title: "Lyra Robotics",
-      slug: "lyra-robotics",
-      description: "A forward-thinking robotics and AI company site highlighting innovative automation technology and solutions.",
-      content: "Lyra Robotics is the most powerful omnichain toolkit, supporting Ethereum, Solana, Polygon, Avalanche, Bitcoin, and more. Features include automated minting, sniping, raffle and discord botting, airdrop farming, and wallet management across multiple blockchains.",
-      imageUrl: "/images/lyra-robotics.png",
-      technologies: ["Next.js", "Blockchain", "Web3", "AI"],
-      liveUrl: "https://www.lyrarobotics.io",
-      featured: true,
-      order: 2
-    });
+    const projectsToSeed = [
+      {
+        title: "SkyIQ Cloud",
+        slug: "skyiq-cloud",
+        description: "A sleek SaaS landing page showcasing AI-powered voice assistant and telephony solutions for modern businesses.",
+        content: "A sleek SaaS landing page showcasing AI-powered voice assistant and telephony solutions for modern businesses.",
+        imageUrl: "/images/skyiq-cloud.png",
+        technologies: ["React", "Tailwind", "AI"],
+        liveUrl: "https://skyiq.cloud",
+        featured: true,
+        order: 1
+      },
+      {
+        title: "SkyIQ App",
+        slug: "skyiq-app",
+        description: "A full-featured web application platform delivering intelligent automation and client management tools.",
+        content: "A full-featured web application platform delivering intelligent automation and client management tools.",
+        imageUrl: "/images/skyiq-app.png",
+        technologies: ["React", "Node.js", "Automation"],
+        liveUrl: "https://www.skyiq.app",
+        featured: true,
+        order: 2
+      },
+      {
+        title: "Lyra Robotics",
+        slug: "lyra-robotics",
+        description: "A forward-thinking robotics and AI company site highlighting innovative automation technology and solutions.",
+        content: "A forward-thinking robotics and AI company site highlighting innovative automation technology and solutions.",
+        imageUrl: "/images/lyra-robotics.png",
+        technologies: ["Next.js", "AI", "Robotics"],
+        liveUrl: "https://www.lyrarobotics.io/",
+        featured: true,
+        order: 3
+      },
+      {
+        title: "Onda Floent Money",
+        slug: "onda-floent",
+        description: "A dynamic entertainment and music brand site representing the Money on da FLO creative movement.",
+        content: "A dynamic entertainment and music brand site representing the Money on da FLO creative movement.",
+        imageUrl: "https://images.unsplash.com/photo-1514525253361-bee8a197c9c4",
+        technologies: ["Web Design", "Branding", "Entertainment"],
+        liveUrl: "https://ondafloent.money/",
+        featured: true,
+        order: 4
+      },
+      {
+        title: "TRI Creative Group",
+        slug: "tricreative",
+        description: "A polished creative agency website offering comprehensive branding, design, and digital marketing services.",
+        content: "A polished creative agency website offering comprehensive branding, design, and digital marketing services.",
+        imageUrl: "/images/tricreative.png",
+        technologies: ["React", "Branding", "Marketing"],
+        liveUrl: "https://tricreativegroup.com/",
+        featured: true,
+        order: 5
+      },
+      {
+        title: "Antwon Harris",
+        slug: "antwon-harris",
+        description: "A professional personal brand and portfolio site spotlighting expertise, projects, and entrepreneurial ventures.",
+        content: "A professional personal brand and portfolio site spotlighting expertise, projects, and entrepreneurial ventures.",
+        imageUrl: "/images/antwon-harris.png",
+        technologies: ["Portfolio", "Personal Brand"],
+        liveUrl: "https://antwonharris.com",
+        featured: true,
+        order: 6
+      },
+      {
+        title: "Saniya Allen",
+        slug: "saniya-allen",
+        description: "An elegant personal brand website showcasing talent, artistry, and professional achievements.",
+        content: "An elegant personal brand website showcasing talent, artistry, and professional achievements.",
+        imageUrl: "/images/sani-allen.png",
+        technologies: ["Artistry", "Personal Brand"],
+        liveUrl: "https://www.saniyallen.com/",
+        featured: true,
+        order: 7
+      }
+    ];
+
+    for (const project of projectsToSeed) {
+      await storage.createProject(project);
+    }
   }
 
   const existingServices = await storage.getServices();
