@@ -14,10 +14,10 @@ export default function Home() {
   return (
     <div className="space-y-24 pb-20">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden bg-white">
         <div className="absolute inset-0 z-0 pointer-events-auto">
           <LiquidEther
-            colors={['#808080', '#C0C0C0', '#E8E8E8']}
+            colors={['#E0E0E0', '#D0D0D0', '#C0C0C0']}
             mouseForce={25}
             cursorSize={120}
             autoDemo={true}
