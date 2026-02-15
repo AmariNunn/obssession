@@ -42,7 +42,7 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               className="text-center lg:text-left"
             >
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-10 leading-[1.1]">
+              <h1 className="md:text-7xl font-bold tracking-tighter mb-10 text-[40px]">
                 AmariNunn.Tech <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">Builds what's next.</span>
               </h1>
