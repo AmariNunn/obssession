@@ -210,7 +210,7 @@ export default function Home() {
             maxSize={0.9}
           />
         </div>
-        <div className="relative z-10 flex items-center justify-center px-4 sm:px-6 lg:px-8" style={{ minHeight: '500px' }}>
+        <div className="relative z-10 flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-[#aba9a93d]" style={{ minHeight: '500px' }}>
           <div className="max-w-2xl mx-auto text-center pointer-events-none">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 drop-shadow-lg">
               Ready to elevate your digital presence?
