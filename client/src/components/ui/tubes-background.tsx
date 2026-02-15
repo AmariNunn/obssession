@@ -84,10 +84,9 @@ export function TubesBackground({
     >
       <canvas 
         ref={canvasRef} 
-        className="absolute inset-0 w-full h-full block"
+        className="absolute inset-0 w-full h-full block text-[#00ff00]"
         style={{ touchAction: 'none' }}
       />
-      
       <div className="relative z-10 w-full h-full pointer-events-none">
         {children}
       </div>
