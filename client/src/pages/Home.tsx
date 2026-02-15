@@ -169,7 +169,7 @@ export default function Home() {
             ))
           ) : (
             featuredProjects.map((project) => (
-              <Link key={project.id} href={`/portfolio/${project.slug}`}>
+              <a key={project.id} href={project.liveUrl || `/portfolio/${project.slug}`} target="_blank" rel="noopener noreferrer">
                 <TechCard 
                   title={project.title} 
                   subtitle="CASE STUDY"
@@ -194,7 +194,7 @@ export default function Home() {
                     ))}
                   </div>
                 </TechCard>
-              </Link>
+              </a>
             ))
           )}
         </div>
