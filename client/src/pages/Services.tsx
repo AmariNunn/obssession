@@ -62,10 +62,14 @@ export default function Services() {
                 </div>
 
                 <div className="pt-6 border-t border-border/50">
-                  <div className="flex items-baseline justify-between">
-                    <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">Starting at</span>
-                    <span className="text-lg font-bold font-mono">{service.priceRange || "Custom"}</span>
-                  </div>
+                  <a
+                    href="https://cal.com/skyiq/app-consultation"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center px-4 py-3 rounded-lg bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors"
+                  >
+                    Book for Quote
+                  </a>
                 </div>
               </TechCard>
             );
