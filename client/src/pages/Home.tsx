@@ -103,6 +103,7 @@ export default function Home() {
                   size={1.2}
                   color="#5227FF"
                   label="WEB DEV"
+                  linkUrl="/services"
                   items={[
                     <Code2 key="1" className="w-5 h-5 text-slate-400" />,
                     <Layout key="2" className="w-5 h-5 text-slate-400" />,
@@ -119,6 +120,7 @@ export default function Home() {
                   size={1.2}
                   color="#00D1FF"
                   label="AI"
+                  linkUrl="/services"
                   items={[
                     <Cpu key="1" className="w-5 h-5 text-cyan-400" />,
                     <Terminal key="2" className="w-5 h-5 text-cyan-300" />
@@ -134,6 +136,7 @@ export default function Home() {
                   size={1.2}
                   color="#1A1A1B"
                   label="SYSTEMS"
+                  linkUrl="/services"
                   items={[
                     <Database key="1" className="w-5 h-5 text-slate-500" />,
                     <Terminal key="2" className="w-5 h-5 text-slate-400" />
