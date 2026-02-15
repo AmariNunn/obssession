@@ -38,6 +38,7 @@ export function TubesBackground({
         if (!mounted) return;
 
         const app = TubesCursor(canvasRef.current, {
+          hideTitle: true,
           tubes: {
             colors: ["#f967fb", "#53bc28", "#6958d5"],
             lights: {
