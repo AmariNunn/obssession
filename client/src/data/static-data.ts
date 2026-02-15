@@ -107,7 +107,7 @@ export const projectsData = [
     technologies: ["Web Design", "Nonprofit", "Education"],
     liveUrl: "https://excellenceinmotion.org/",
     repoUrl: null,
-    featured: false,
+    featured: true,
     order: 8,
     createdAt: null,
   },
