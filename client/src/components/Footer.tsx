@@ -29,18 +29,12 @@ export function Footer() {
 
           <div>
             <h4 className="font-mono font-bold text-sm uppercase tracking-wider mb-4">Connect</h4>
-            <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Github className="w-5 h-5" />
+            <div className="flex flex-col space-y-3">
+              <a href="/contact" className="inline-flex items-center justify-center px-4 py-2 rounded-lg border border-border bg-background hover:bg-muted/50 transition-colors text-sm font-medium">
+                <Mail className="w-4 h-4 mr-2" /> Contact Us
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="mailto:hello@example.com" className="text-muted-foreground hover:text-primary transition-colors">
-                <Mail className="w-5 h-5" />
+              <a href="https://cal.com/skyiq/app-consultation" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-bold">
+                Book a Consultation
               </a>
             </div>
           </div>
