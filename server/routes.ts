@@ -78,24 +78,25 @@ export async function seedDatabase() {
   const existingProjects = await storage.getProjects();
   if (existingProjects.length === 0) {
     await storage.createProject({
-      title: "E-Commerce Analytics Dashboard",
-      slug: "analytics-dashboard",
-      description: "A high-performance analytics platform for e-commerce businesses.",
-      content: "Built with React, D3.js, and Node.js to visualize millions of data points in real-time.",
-      imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-      technologies: ["React", "TypeScript", "D3.js", "Node.js"],
-      liveUrl: "https://example.com",
+      title: "SkyIQ Cloud Platform",
+      slug: "skyiq-cloud",
+      description: "A full-featured web application platform delivering intelligent automation and client management tools.",
+      content: "SkyIQ Cloud is an AI-powered voice agent platform with features including call dashboards, bulk calling, business profiles, and admin panels. Built to streamline client communication and automate business workflows.",
+      imageUrl: "/images/skyiq-dashboard.png",
+      technologies: ["React", "Node.js", "AI", "Cloud"],
+      liveUrl: "https://www.skyiq.cloud",
       featured: true,
       order: 1
     });
     
     await storage.createProject({
-      title: "AI Content Generator",
-      slug: "ai-content-gen",
-      description: "Generative AI tool for marketing copy.",
-      content: "Leveraging OpenAI API to generate high-quality marketing copy with a custom fine-tuned model.",
-      imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
-      technologies: ["Next.js", "OpenAI API", "Tailwind CSS"],
+      title: "Lyra Robotics",
+      slug: "lyra-robotics",
+      description: "A forward-thinking robotics and AI company site highlighting innovative automation technology and solutions.",
+      content: "Lyra Robotics is the most powerful omnichain toolkit, supporting Ethereum, Solana, Polygon, Avalanche, Bitcoin, and more. Features include automated minting, sniping, raffle and discord botting, airdrop farming, and wallet management across multiple blockchains.",
+      imageUrl: "/images/lyra-robotics.png",
+      technologies: ["Next.js", "Blockchain", "Web3", "AI"],
+      liveUrl: "https://www.lyrarobotics.io",
       featured: true,
       order: 2
     });
