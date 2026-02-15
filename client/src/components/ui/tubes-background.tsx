@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 const randomColors = (count: number) => {
@@ -21,6 +20,7 @@ export function TubesBackground({
 }: TubesBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const tubesRef = useRef<any>(null);
 
   useEffect(() => {
@@ -29,6 +29,14 @@ export function TubesBackground({
 
     const initTubes = async () => {
       if (!canvasRef.current) return;
+
+      const canvas = canvasRef.current;
+      const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+      if (!gl) {
+        console.warn("WebGL not available, skipping tubes effect");
+        if (mounted) setHasError(true);
+        return;
+      }
 
       try {
         // @ts-ignore
@@ -50,12 +58,9 @@ export function TubesBackground({
         tubesRef.current = app;
         setIsLoaded(true);
 
-        cleanup = () => {
-          // The library handles its own resizing usually, but we cleanup mounting state
-        };
-
       } catch (error) {
-        console.error("Failed to load TubesCursor:", error);
+        console.warn("Failed to load TubesCursor:", error);
+        if (mounted) setHasError(true);
       }
     };
 
@@ -79,14 +84,16 @@ export function TubesBackground({
 
   return (
     <div 
-      className={cn("relative w-full h-full min-h-[400px] overflow-hidden", className)}
+      className={cn("relative w-full h-full min-h-[400px] overflow-hidden bg-background", className)}
       onClick={handleClick}
     >
-      <canvas 
-        ref={canvasRef} 
-        className="absolute inset-0 w-full h-full block"
-        style={{ touchAction: 'none' }}
-      />
+      {!hasError && (
+        <canvas 
+          ref={canvasRef} 
+          className="absolute inset-0 w-full h-full block mix-blend-screen"
+          style={{ touchAction: 'none' }}
+        />
+      )}
       
       <div className="relative z-10 w-full h-full pointer-events-none">
         {children}
