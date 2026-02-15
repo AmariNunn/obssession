@@ -38,7 +38,7 @@ export default function Portfolio() {
               >
                 <TechCard 
                   title={project.title}
-                  subtitle={project.featured ? "FEATURED" : "ARCHIVED"}
+                  subtitle="Active Client"
                   className="flex flex-col group pointer-events-auto"
                 >
                   <div className="aspect-video w-full overflow-hidden rounded-md bg-muted mb-6 relative border border-border/50">

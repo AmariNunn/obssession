@@ -39,7 +39,7 @@ export default function Services() {
               <TechCard 
                 key={service.id}
                 title={service.title}
-                subtitle="SERVICE PROTOCOL"
+                subtitle="Active Client"
                 className="flex flex-col h-full"
                 headerRight={<Icon className="w-4 h-4 text-muted-foreground" />}
               >

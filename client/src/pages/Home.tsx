@@ -170,7 +170,7 @@ export default function Home() {
               <a key={project.id} href={project.liveUrl || `/portfolio/${project.slug}`} target="_blank" rel="noopener noreferrer">
                 <TechCard 
                   title={project.title} 
-                  subtitle="CASE STUDY"
+                  subtitle="Active Client"
                   className="h-full hover:-translate-y-1 transition-transform cursor-pointer"
                 >
                   <div className="aspect-video mb-6 overflow-hidden rounded-md bg-muted relative group-hover:ring-2 ring-accent/20 transition-all">
