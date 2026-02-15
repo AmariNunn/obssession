@@ -86,7 +86,7 @@ export async function seedDatabase() {
         imageUrl: "/images/skyiq-cloud.png",
         technologies: ["React", "Tailwind", "AI"],
         liveUrl: "https://skyiq.cloud",
-        featured: true,
+        featured: false,
         order: 1
       },
       {
@@ -119,7 +119,7 @@ export async function seedDatabase() {
         imageUrl: "https://images.unsplash.com/photo-1514525253361-bee8a197c9c4",
         technologies: ["Web Design", "Branding", "Entertainment"],
         liveUrl: "https://ondafloent.money/",
-        featured: true,
+        featured: false,
         order: 4
       },
       {
@@ -130,7 +130,7 @@ export async function seedDatabase() {
         imageUrl: "/images/tricreative.png",
         technologies: ["React", "Branding", "Marketing"],
         liveUrl: "https://tricreativegroup.com/",
-        featured: true,
+        featured: false,
         order: 5
       },
       {
@@ -141,7 +141,7 @@ export async function seedDatabase() {
         imageUrl: "/images/antwon-harris.png",
         technologies: ["Portfolio", "Personal Brand"],
         liveUrl: "https://antwonharris.com",
-        featured: true,
+        featured: false,
         order: 6
       },
       {
@@ -152,7 +152,7 @@ export async function seedDatabase() {
         imageUrl: "/images/sani-allen.png",
         technologies: ["Artistry", "Personal Brand"],
         liveUrl: "https://www.saniyallen.com/",
-        featured: true,
+        featured: false,
         order: 7
       }
     ];
