@@ -3,8 +3,8 @@ import { Link } from "wouter";
 import { ArrowRight, ChevronRight, Terminal, Code2, Cpu, FileText, Layout, Database } from "lucide-react";
 import { TechCard } from "@/components/TechCard";
 import { LiquidEther } from "@/components/LiquidEther";
-import { PricingPlans } from "@/components/PricingPlans";
 import { InteractiveFolder } from "@/components/InteractiveFolder";
+import { BallpitBackground } from "@/components/BallpitBackground";
 import { useProjects } from "@/hooks/use-content";
 
 export default function Home() {
@@ -198,23 +198,29 @@ export default function Home() {
         </div>
       </section>
       {/* CTA Section */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl px-6 py-16 md:px-12 md:py-20 relative overflow-hidden text-center bg-[#7d8c8c87]">
-          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-             <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl -top-20 -left-20"></div>
-             <div className="absolute w-96 h-96 bg-accent rounded-full blur-3xl -bottom-20 -right-20"></div>
-          </div>
-          
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
+      <section className="relative w-full overflow-hidden" style={{ minHeight: '500px' }}>
+        <div className="absolute inset-0 z-0">
+          <BallpitBackground
+            count={150}
+            colors={['#1A1A1B', '#3B82F6', '#94A3B8']}
+            gravity={0.4}
+            friction={0.998}
+            followCursor={true}
+            minSize={0.4}
+            maxSize={0.9}
+          />
+        </div>
+        <div className="relative z-10 flex items-center justify-center px-4 sm:px-6 lg:px-8" style={{ minHeight: '500px' }}>
+          <div className="max-w-2xl mx-auto text-center pointer-events-none">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 drop-shadow-lg">
               Ready to elevate your digital presence?
             </h2>
-            <p className="text-primary-foreground/80 mb-10 text-lg">
+            <p className="text-white/80 mb-10 text-lg drop-shadow-md">
               Let's discuss your project and see how we can build something extraordinary together.
             </p>
-            <Link 
-              href="/contact" 
-              className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-bold hover:bg-accent hover:text-white transition-all duration-300 shadow-xl bg-[#788282] text-[#ffffff]"
+            <Link
+              href="/contact"
+              className="pointer-events-auto inline-flex items-center justify-center px-8 py-4 rounded-lg font-bold bg-white text-foreground hover:bg-accent hover:text-white transition-all duration-300 shadow-xl"
             >
               Get in Touch
             </Link>
