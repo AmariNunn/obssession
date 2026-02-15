@@ -14,10 +14,10 @@ export default function Home() {
   return (
     <div className="space-y-24 pb-20">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden bg-white">
+      <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden bg-background">
         <div className="absolute inset-0 z-0 pointer-events-auto">
           <LiquidEther
-            colors={['#E0E0E0', '#D0D0D0', '#C0C0C0']}
+            colors={['#070D0D', '#333333', '#fbfbfb']}
             mouseForce={25}
             cursorSize={120}
             autoDemo={true}
@@ -29,7 +29,7 @@ export default function Home() {
             style={{ pointerEvents: 'auto' }}
           />
           {/* Gradient overlay to fade effect under to the next section */}
-          <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-white pointer-events-none" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-background pointer-events-none" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -96,21 +96,21 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col space-y-4 p-6 rounded-xl hover:bg-background/80 transition-colors border border-transparent hover:border-border/50">
-              <div className="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-lg flex items-center justify-center mb-2">
+              <div className="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-2">
                 <Code2 className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold">Web Development</h3>
               <p className="text-muted-foreground text-sm">High-performance React/Next.js applications built for scale and speed.</p>
             </div>
             <div className="flex flex-col space-y-4 p-6 rounded-xl hover:bg-background/80 transition-colors border border-transparent hover:border-border/50">
-              <div className="w-12 h-12 bg-purple-500/10 text-purple-500 rounded-lg flex items-center justify-center mb-2">
+              <div className="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-2">
                 <Cpu className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold">AI Integration</h3>
               <p className="text-muted-foreground text-sm">Custom LLM implementation, chatbots, and intelligent automation workflows.</p>
             </div>
             <div className="flex flex-col space-y-4 p-6 rounded-xl hover:bg-background/80 transition-colors border border-transparent hover:border-border/50">
-              <div className="w-12 h-12 bg-green-500/10 text-green-500 rounded-lg flex items-center justify-center mb-2">
+              <div className="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-2">
                 <Terminal className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold">System Architecture</h3>
