@@ -31,63 +31,28 @@ export function TubesBackground({
       if (!canvasRef.current) return;
 
       try {
-        // Strict WebGL check before loading the external script
-        const canvas = canvasRef.current;
-        // Attempt to get a WebGL context to verify support
-        const gl = canvas.getContext('webgl', { 
-          failIfMajorPerformanceCaveat: true,
-          preserveDrawingBuffer: false 
-        }) || canvas.getContext('experimental-webgl');
-        
-        if (!gl) {
-          console.warn("WebGL context not available or hardware acceleration disabled.");
-          return;
-        }
+        // @ts-ignore
+        const module = await import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
+        const TubesCursor = module.default;
 
-        // Global error suppression for Three.js initialization failures
-        const originalError = window.onerror;
-        window.onerror = function(message, source, lineno, colno, error) {
-          const msg = String(message);
-          if (msg.includes('getSupportedExtensions') || msg.includes('Three.js')) {
-            console.warn("Gracefully suppressed Three.js initialization error.");
-            setIsLoaded(false); 
-            return true; 
-          }
-          return originalError ? originalError(message, source, lineno, colno, error) : false;
-        };
+        if (!mounted) return;
 
-        // Try-catch block specifically for the library call
-        try {
-          // @ts-ignore
-          const module = await import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
-          const TubesCursor = module.default;
-
-          if (!mounted || !canvasRef.current) {
-            window.onerror = originalError;
-            return;
-          }
-
-          const app = TubesCursor(canvasRef.current, {
-            tubes: {
-              colors: ["#f967fb", "#53bc28", "#6958d5"],
-              lights: {
-                intensity: 200,
-                colors: ["#83f36e", "#fe8a2e", "#ff008a", "#60aed5"]
-              }
+        const app = TubesCursor(canvasRef.current, {
+          tubes: {
+            colors: ["#f967fb", "#53bc28", "#6958d5"],
+            lights: {
+              intensity: 200,
+              colors: ["#83f36e", "#fe8a2e", "#ff008a", "#60aed5"]
             }
-          });
+          }
+        });
 
-          tubesRef.current = app;
-          setIsLoaded(true);
-        } catch (innerError) {
-          console.warn("Failed to initialize TubesCursor library:", innerError);
-          setIsLoaded(false);
-        } finally {
-          // Restore handler after a delay to catch async init errors
-          setTimeout(() => {
-            window.onerror = originalError;
-          }, 2000);
-        }
+        tubesRef.current = app;
+        setIsLoaded(true);
+
+        cleanup = () => {
+          // The library handles its own resizing usually, but we cleanup mounting state
+        };
 
       } catch (error) {
         console.error("Failed to load TubesCursor:", error);
@@ -102,9 +67,20 @@ export function TubesBackground({
     };
   }, []);
 
+  const handleClick = () => {
+    if (!enableClickInteraction || !tubesRef.current) return;
+    
+    const colors = randomColors(3);
+    const lightsColors = randomColors(4);
+    
+    tubesRef.current.tubes.setColors(colors);
+    tubesRef.current.tubes.setLightsColors(lightsColors);
+  };
+
   return (
     <div 
       className={cn("relative w-full h-full min-h-[400px] overflow-hidden bg-background", className)}
+      onClick={handleClick}
     >
       <canvas 
         ref={canvasRef} 
