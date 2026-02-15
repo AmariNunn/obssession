@@ -181,6 +181,42 @@ export async function seedDatabase() {
       icon: "Bot",
       order: 2
     });
+
+    await storage.createService({
+      title: "Custom SaaS Development",
+      description: "End-to-end SaaS platforms built with modern technology stacks for performance and reliability.",
+      priceRange: "Starting at $10,000",
+      features: ["Multi-tenancy", "Subscription Management", "Custom Dashboards", "API Development"],
+      icon: "Layers",
+      order: 3
+    });
+
+    await storage.createService({
+      title: "Mobile App Development",
+      description: "Native-quality cross-platform mobile applications for iOS and Android using React Native.",
+      priceRange: "Starting at $8,000",
+      features: ["iOS & Android Support", "Push Notifications", "Offline Functionality", "App Store Publishing"],
+      icon: "Smartphone",
+      order: 4
+    });
+
+    await storage.createService({
+      title: "UI/UX Design Systems",
+      description: "Comprehensive design systems and prototypes that ensure brand consistency and high usability.",
+      priceRange: "Starting at $3,500",
+      features: ["User Research", "Wireframing", "Prototyping", "Component Library"],
+      icon: "Palette",
+      order: 5
+    });
+
+    await storage.createService({
+      title: "Cloud Infrastructure & DevOps",
+      description: "Scale your application with robust cloud architecture and automated deployment pipelines.",
+      priceRange: "Starting at $4,000",
+      features: ["AWS/GCP Setup", "CI/CD Pipelines", "Auto-scaling", "Security Audits"],
+      icon: "Cloud",
+      order: 6
+    });
   }
 
   const existingTestimonials = await storage.getTestimonials();
