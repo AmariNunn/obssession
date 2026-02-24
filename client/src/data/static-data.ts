@@ -91,7 +91,7 @@ export const projectsData = [
     content: "An elegant personal brand website showcasing talent, artistry, and professional achievements.",
     imageUrl: "/images/sani-allen.png",
     technologies: ["Artistry", "Personal Brand"],
-    liveUrl: "https://www.saniyallen.com/",
+    liveUrl: "https://saniyallen.com/",
     repoUrl: null,
     featured: false,
     order: 7,
